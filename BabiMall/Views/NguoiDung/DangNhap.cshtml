@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+           alert(decodeURIComponent("@Html.Raw(TempData["SuccessMessage"])"));
+    </script>
+}
+
+<div class="title-tag">
+    <span>Đăng nhập BabicuteMall</span>
+</div>
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner">
+
+                        <div class="container" style=" width: 440px; padding: 2.5rem; top: 30px; left: 50%; border: 1px solid #000; ">
+                            <img src="~/Images/logoMall.png" />
+                            <h2 class="AuthLayout_formTitle__2S9Up" style="font-size: 2.3rem; font-weight: 700; margin: 0.25rem 0;text-align:center">Đăng nhập tài khoản</h2>
+                            <div class="container" style=" width: 100%; margin: 1rem 0 0;">
+
+                                @using (Html.BeginForm("DangNhap", "NguoiDung"))
+                                {
+                                    @Html.ValidationSummary(true)
+
+
+
+                                    <div style=" margin-bottom: 0.7rem !important;">
+                                        <label for="dangnhap">Tên đăng nhập:</label>
+                                        @Html.TextBox("TenDN", null, new
+                                   {
+                                       @class = "form-control",
+                                       placeholder = "Nhập tài khoản ",
+                                       style = "height:35px;font-size:1.3rem;margin-top:0.2rem;padding : 0.4rem 0.8rem;border-radius:0;",
+                                       @id = "dangnhap",
+                                       required = "required"
+                                   })
+                                    </div>
+                                    <div style=" margin-bottom: 0.7rem !important;">
+                                        <label for="matkhau">Mật khẩu:</label>
+                                        <a href="#" style=" margin: 0; float: right; font-weight: 500; color: #19A7CE; transition: all .15s ease-in-out; -webkit-transition: all .15s ease-in-out;">Quên mật khẩu ?</a>
+                                        @Html.Password("Matkhau", null, new
+                                   {
+                                       @class = "form-control",
+                                       placeholder = "Nhập mật khẩu ",
+                                       style = "height:35px;font-size:1.3rem;",
+                                       @id = "matkhau",
+                                       required = "required"
+                                   })
+                                    </div>
+
+
+
+
+                                    <div style=" margin-bottom: 0.9rem !important;text-align:center;margin-top:10px">
+                                        <button type="submit" class="btn" style=" width: 100%; height: 35px; margin-top: 1rem; border: 2px solid #000; border-radius: 0; background-color: #19A7CE; color: #2d2d2d; font-weight: 700; text-transform: uppercase; text-align: center; line-height: -webkit-calc(2rem - 4px); line-height: calc(2rem - 4px); transition: all .15s ease-in-out; -webkit-transition: all .15s ease-in-out;">ĐĂNG NHẬP</button>
+                                    </div>
+                                }
+
+                            </div>
+
+
+                            <div style="margin: 1rem 0 0; text-align: center;">
+                                Chưa có tài khoản ?
+                                <a href="~/NguoiDung/DangKy" style=" margin: 0; color: #19A7CE; transition: all .15s ease-in-out; -webkit-transition: all .15s ease-in-out;">Đăng ký ngay</a>
+                            </div>
+                            <div class="p-divider p-component p-divider-horizontal p-divider-solid p-divider-center Login_orDivider__1NGc3" role="separator" style="justify-content: center;text-align:center"><div class="p-divider-content" style=" padding: 0 0.5rem;"><p style=" margin-top: 10px;margin-bottom:10px; padding: 0;">---------- Hoặc ----------</p></div></div>
+                            <button style=" width: 100%; height: 40px; background-color: #fff; border-radius: 4px;border:2px solid ; outline: none; color: #000;  font-weight: 600;justify-content: center; -moz-box-align: center; align-items: center; ">
+                                <img src="~/Images/logo-google.png" height="24" width="24" style="margin-right:1rem;" />
+                                Đăng nhập bằng Google
+                            </button>
+                            <button style=" width: 100%; height: 40px; background-color: #fff;margin-top:10px; border-radius: 4px; border: 2px solid; outline: none; color: #000;  font-weight: 600; justify-content: center; -moz-box-align: center; align-items: center; ">
+                                <img src="~/Images/logo-facebook.png" height="24" width="24" style="margin-right:1rem;" />
+                                Đăng nhập bằng FaceBook
+                            </button>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

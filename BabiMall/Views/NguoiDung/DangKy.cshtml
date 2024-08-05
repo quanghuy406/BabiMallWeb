@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "Đăng kí";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+}
+
+
+
+<div class="title-tag">
+    <span>Đăng kí thành viên BabicuteMall</span>
+</div>
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner">
+
+                        <div class="container" style=" width: 800px; padding: 2.5rem;  top: 30px; left: 50%;border:1px solid #000;">
+                            <img src="~/Images/logoMall.png" />
+                            <h2 style="font-size: 2.3rem; font-weight: 700; margin: 0.25rem 0;text-align:center">Đăng ký tài khoản</h2>
+                            <div class="container" style=" width: 100%; margin: 1rem 0 0;">
+                                
+                                    <div class="container" style=" display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 1.5rem;">
+                                        @using (Html.BeginForm("DangKy", "NguoiDung"))
+                                        {
+                                            @Html.ValidationSummary(true)
+
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;">
+                                                <label for="name">Họ và Tên <span style="color:red">*</span>: </label>
+                                                @Html.TextBox("HoTenKH", null, new
+                                           {
+                                               @class = "form-control",
+                                               placeholder = "Nhập họ và tên:",
+                                                    style = "height:35px;font-size:1.3rem;",
+                                               @id = "name",
+                                               required = "required"
+                                           })
+
+                                            </div>
+
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;">
+                                                <label for="dangnhap">Tên đăng nhập:<span style="color:red">*</span></label>
+                                                @Html.TextBox("TenDN", null, new
+                                           {
+                                               @class = "form-control",
+                                               placeholder = "Tên đăng nhập ",
+                                               style = "height:35px;font-size:1.3rem;",
+                                               @id = "dangnhap",
+                                               required = "required"
+                                           })
+                                            </div>
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;">
+                                                <label for="matkhau">Mật khẩu:<span style="color:red">*</span></label>
+                                                @Html.Password("Matkhau", null, new
+                                           {
+                                               @class = "form-control",
+                                               placeholder = "Nhập mật khẩu ",
+                                               style = "height:35px;font-size:1.3rem;",
+                                               @id = "matkhau",
+                                               required = "required"
+                                           })
+                                            </div>
+
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;">
+                                                <label for="email">Email:<span style="color:red">*</span></label>
+                                                @Html.TextBox("Email", null, new
+                                           {
+                                               @class = "form-control",
+                                               placeholder = "example@gmail.com",
+                                               style = "height:35px;font-size:1.3rem;",
+                                               @id = "email",
+                                               type = "email",
+                                               required = "required"
+                                           })
+                                            </div>
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;">
+                                                <label for="dienthoai">Điện thoại:<span style="color:red">*</span></label>
+                                                @Html.TextBox("DienthoaiKH", null, new
+                                           {
+                                               @class = "form-control",
+                                               placeholder = "0123456789 ",
+                                               style = "height:35px;font-size:1.3rem;",
+                                               @id = "dienthoai",
+                                               required = "required"
+                                           })
+                                            </div>
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;">
+                                                <label for="diachi">Địa chỉ<span style="color:red">*</span></label>
+                                                @Html.TextBox("Diachi", null, new
+                                           {
+                                               @class = "form-control",
+                                               placeholder = "Nhập địa chỉ của bạn ",
+                                               style = "height:35px;font-size:1.3rem;",
+                                               @id = "diachi",
+                                               required = "required"
+                                           })
+                                            </div>
+
+
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;text-align:center;">
+                                                <button type="submit" class="btn btn-primary" style="background: #19A7CE ;margin-top:10px;color:#000;font-size:14px;font-weight:600">ĐĂNG KÝ</button>
+                                            </div>
+                                            <div class="form-group" style=" margin-bottom: 0.9rem !important;">
+                                                <p>
+                                                    <i style="color:red">Lưu ý : * </i>là thông tin không được bỏ trống!!!
+                                                </p>
+
+                                            </div>
+                                        }
+
+                                    </div>
+
+
+                                
+
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,112 @@
+﻿@using BabiMall.Models
+@model IEnumerable<MATBANG>
+@{
+    ViewBag.Title = "MatBang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            
+                    <div class="promotion-slide">
+                        <div class="container">
+                            <h2 class="hoang-phuc-name-acc">Mặt bằng</h2>
+                            <button class="btn btn-success">
+                                <a href="~/Admin/Create" style="text-decoration:none;font-size:18px; color:black">
+                                    Thêm mặt bằng
+                                </a>
+                            </button>
+                                
+                           
+                            <div class="promotion-slide__inner" style="display:flex;flex-wrap:wrap;padding:12px;margin:10px;">
+                                <div class="row same-height-wrap">
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-lg-4 col-6">
+
+                                            <div class="card same-height-item" offset="787" style="height: 440px;">
+                                                <div class="card-img">
+                                                    <div class="images images-block shop-img">
+                                                        <a href="@Url.Action("DetailsMatBang","Admin",new { id = item.Mamatbang })">
+                                                            <img class="img-fluid" src="~/Images/@item.Hinhminhhoa" alt="RECHIC">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <hr class="card-division">
+                                                <div class="card-body text-center">
+                                                    <h2 class="card-title same-height-item" offset="957" style="height: 26px;">
+                                                        <a href="@Url.Action("DetailsMatBang","Admin",new { id = item.Mamatbang })" style="text-decoration:none;color:black;font-weight:bold;font-size:16px">@item.Thongtinmatbang </a>
+                                                    </h2>
+                                                    <p class="card-meta">
+                                                        <strong><i class="zmdi zmdi-pin"></i></strong>
+                                                        <span>
+                                                            <img src="~/Images/istockphoto-1406278465-612x612.png" width="20" height="20" />@item.Dientich@item.Donvitinh
+                                                        </span>
+                                                    </p>
+                                                    <p class="card-meta">
+                                                        <strong>
+                                                            <i class="zmdi zmdi-label"></i>
+                                                            <img src="~/Images/location.png" width="20" height="20" />@item.Vitri
+                                                        </strong>
+                                                    </p>
+                                                    <p class="card-meta">
+                                                        <strong>
+                                                            <i class="zmdi zmdi-label"></i>
+                                                            <img src="~/Images/dolarr.png" width="20" height="20" /> <span style="font-weight:initial;color:red"><i>@string.Format("{0:0.000}", item.Dongia) VNĐ /m^2</i></span>
+                                                        </strong>
+                                                    </p>
+                                                    <p class="card-meta">
+                                                        <strong>
+                                                            <i class="zmdi zmdi-label"></i>
+                                                            <span style="font-weight:initial;color:forestgreen"><i>✅ @item.Trangthaidonhang</i></span>
+                                                        </strong>
+                                                    </p>
+                                                    <p class="card-meta">
+                                                        <strong>
+                                                            <i class="zmdi zmdi-label"></i>
+                                                            <i>
+                                                                <span class="blinking-text">
+                                                                    <a href="@Url.Action("DetailsMatBang","Admin",new { id = item.Mamatbang })">
+                                                                        Nhấp vào để xem chi tiết
+                                                                    </a>
+                                                                </span>
+                                                            </i>
+                                                        </strong>
+                                                    </p>
+                                                    <p class="card-meta">
+                                                        <a href="@Url.Action("Edit", "Admin", new { id = item.Mamatbang })" class="btn btn-secondary">
+                                                            Sửa mặt bằng
+                                                        </a>
+                                                        <a href="@Url.Action("Delete", "Admin", new { id = item.Mamatbang })" class="btn btn-secondary">
+                                                            Xóa mặt bằng
+                                                        </a>
+                                                    </p>
+
+                                                </div>
+                                                <!--<div class="card-overlay card-overlay-light">
+                    <div class="card-overlay-content card-overlay-content-middle text-center">
+                        <a class="btn-outline-dark btn text-uppercase btn-xs-mini btn-hover" href="https://aeonmall-tanphuceladon.com.vn/cua-hang/rechic/">
+                            <span class="hover-span"></span><span class="font-weight-bold pr-2">Chi tiết</span><i class="zmdi zmdi-long-arrow-right font-weight-bold"></i>
+                        </a>
+                    </div>
+                </div>-->
+                                            </div>
+
+                                        </div>
+                                    }
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+            
+            
+        </div>
+    </div>
+</div>

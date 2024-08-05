@@ -1,0 +1,62 @@
+﻿@using BabiMall.Models
+@model IEnumerable<CHUDEMATBANG>
+
+<div class="row">
+
+    @foreach (var chude in Model)
+    {
+        <div class="col-12 " style="padding-bottom:15px;">
+            <a href="@Url.Action("SPTheoChuDe", "MatBang", new { id=chude.MaCD })" class="">
+
+                <div class="hoang-phuc-itemm-acc">
+                    @if (chude.MaCD == 1)
+                    {
+                        <div class="hoang-phuc-item-acc bg-cyan">
+                            @chude.TenChuDe
+                       
+                        </div>
+                    }
+                    @if (chude.MaCD == 2)
+                    {
+                        <div class="hoang-phuc-item-acc bg-pink">
+                            @chude.TenChuDe
+                            
+                        </div>
+                    }
+                    @if (chude.MaCD == 3)
+                    {
+                        <div class="hoang-phuc-item-acc bg-pink">
+                            @chude.TenChuDe
+                            
+                        </div>
+                    }
+                    @if (chude.MaCD == 4)
+                    {
+                        <div class="hoang-phuc-item-acc bg-pink">
+                            @chude.TenChuDe
+                            
+                        </div>
+                    }
+                    @if (chude.MaCD == 5)
+                    {
+                        <div class="hoang-phuc-item-acc bg-pink">
+                            @chude.TenChuDe
+                           
+                        </div>
+                    }
+                    @if (chude.MaCD == 6)
+                    {
+                        <div class="hoang-phuc-item-acc bg-pink">
+                            @chude.TenChuDe
+                            
+                        </div>
+                    }
+              
+                </div>
+
+            </a>
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,65 @@
+﻿@using BabiMall.Models
+@model IEnumerable<CTTHUEMATBANG>
+@{
+    ViewBag.Title = "XemDonHang";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+    KHACHHANG khach = Session["TaiKhoan"] as KHACHHANG;
+}
+
+<div>
+    Tổng doanh thu : @Model.Sum(ct => ct.Thanhtien)
+</div>
+<h2 class="hoang-phuc-name-acc">
+    THÔNG TIN KHÁCH HÀNG
+</h2>
+<table class="table table-bordered">
+    <tr>
+        <td>Họ tên khách hàng:</td>
+        <td>@khach.HoTenKH</td>
+    </tr>
+    <tr>
+        <td>Địa chỉ khách hàng: </td>
+        <td>@khach.Diachi</td>
+    </tr>
+    <tr>
+        <td>Email liên hệ : </td>
+        <td>@khach.Email</td>
+    </tr>
+    <tr>
+        <td>Điện thoại liên hệ :</td>
+        <td>@khach.DienthoaiKH</td>
+    </tr>
+
+</table>
+@foreach (var donthue in Model)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Mã mặt bằng</th>
+                <th>Đơn giá</th>
+                <th>Diện tích</th>
+                <th>Thành tiền</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@donthue.Somatbang</td>
+                <td>@donthue.Mamatbang</td>
+                <!--<td><img src="~/Images/.Hinhminhhoa" width="250" height="152" /></td>-->
+                <td>@string.Format("{0:0.000}", @donthue.Dongia)</td>
+                <td>
+                    @donthue.Sodientichthue m^2
+                </td>
+                <td>@string.Format("{0:0.000}", @donthue.Thanhtien)</td>
+               
+
+            </tr>
+            
+        </tbody>
+    </table>
+}
+
+

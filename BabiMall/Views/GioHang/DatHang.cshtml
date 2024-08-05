@@ -1,0 +1,91 @@
+﻿
+@using BabiMall.Models
+@model IEnumerable<MatBangThue>
+
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+    KHACHHANG khach = Session["TaiKhoan"] as KHACHHANG;
+}
+
+<h2 class="hoang-phuc-name-acc">
+    THÔNG TIN ĐƠN HÀNG
+</h2>
+<section class="dathang">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã mặt bằng</th>
+                <th>Thông tin mặt bằng</th>
+                <th>Ảnh minh họa</th>
+                <th>Diện tích</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var matbang in Model)
+            {
+                <tr>
+                    <td>@matbang.MaMatBang</td>
+                    <td>@matbang.TenMatBang</td>
+                    <td><img src="~/Images/@matbang.Hinhminhhoa" width="250" height="152" /></td>
+
+                    <td>
+                        @matbang.DienTich m^2
+                    </td>
+                    <td>@string.Format("{0:0.000}", matbang.DonGia)</td>
+                    <td>@string.Format("{0:0,000.000}", matbang.ThanhTien())</td>
+
+                </tr>
+            }
+            <tr style="font-weight:bold; text-align:right; color:red;">
+                <td colspan="4">Tổng diện tích: @ViewBag.TongSL m^2</td>
+                <td colspan="2">Tổng tiền: @string.Format("{0:0,000.000}", @ViewBag.TongTien)</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 class="hoang-phuc-name-acc">
+        THÔNG TIN KHÁCH HÀNG
+    </h2>
+    <table class="table table-bordered">
+        <tr>
+            <td>Họ tên khách hàng:</td>
+            <td>@khach.HoTenKH</td>
+        </tr>
+        <tr>
+            <td>Địa chỉ khách hàng: </td>
+            <td>@khach.Diachi</td>
+        </tr>
+        <tr>
+            <td>Email liên hệ : </td>
+            <td>@khach.Email</td>
+        </tr>
+        <tr>
+            <td>Điện thoại liên hệ :</td>
+            <td>@khach.DienthoaiKH</td>
+        </tr>
+        <tr>
+            <td>Ngày đặt:</td>
+            <td>@DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+
+                @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "DongYDatHang", null, new { @class = "btn btn-primary" })
+            </td>
+            <td colspan="2" style="text-align: center;">
+
+                @Html.ActionLink("Thay đổi thông tin", "Edit", null, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+
+
+
+    </table>
+
+</section>
+
+

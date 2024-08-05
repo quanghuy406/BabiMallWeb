@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title-tag">
+    <span>Đăng nhập quản lí Mall</span>
+</div>
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner">
+
+                        <div class="container" style=" width: 440px; padding: 2.5rem; top: 30px; left: 50%; border: 1px solid #000; ">
+                            <img src="~/Images/logoMall.png" />
+                            <h2 class="AuthLayout_formTitle__2S9Up" style="font-size: 2.3rem; font-weight: 700; margin: 0.25rem 0;text-align:center">Đăng nhập tài khoản</h2>
+                            <div class="container" style=" width: 100%; margin: 1rem 0 0;">
+
+                                @using (Html.BeginForm("DangNhap", "Admin"))
+                                {
+                                    @Html.ValidationSummary(true)
+
+
+
+                                    <div style=" margin-bottom: 0.7rem !important;">
+                                        <label for="dangnhap">Tên đăng nhập:</label>
+                                        @Html.TextBox("Tendangnhap", null, new
+                                   {
+                                       @class = "form-control",
+                                       placeholder = "Nhập tên đăng nhập ",
+                                       style = "height:35px;font-size:1.3rem;margin-top:0.2rem;padding : 0.4rem 0.8rem;border-radius:0;",
+                                       @id = "dangnhap",
+                                       required = "required"
+                                   })
+                                    </div>
+                                    <div style=" margin-bottom: 0.7rem !important;">
+                                        <label for="matkhau">Mật khẩu:</label>
+                                        <a href="#" style=" margin: 0; float: right; font-weight: 500; color: #19A7CE; transition: all .15s ease-in-out; -webkit-transition: all .15s ease-in-out;">Quên mật khẩu ?</a>
+                                        @Html.Password("Matkhau", null, new
+                                   {
+                                       @class = "form-control",
+                                       placeholder = "Nhập mật khẩu ",
+                                       style = "height:35px;font-size:1.3rem;",
+                                       @id = "matkhau",
+                                       required = "required"
+                                   })
+                                    </div>
+
+
+
+
+                                    <div style=" margin-bottom: 0.9rem !important;text-align:center;margin-top:10px">
+                                        <button type="submit" class="btn" style=" width: 100%; height: 35px; margin-top: 1rem; border: 2px solid #000; border-radius: 0; background-color: #19A7CE; color: #2d2d2d; font-weight: 700; text-transform: uppercase; text-align: center; line-height: -webkit-calc(2rem - 4px); line-height: calc(2rem - 4px); transition: all .15s ease-in-out; -webkit-transition: all .15s ease-in-out;">ĐĂNG NHẬP</button>
+                                    </div>
+                                }
+
+                            </div>
+                            
+
+                           
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

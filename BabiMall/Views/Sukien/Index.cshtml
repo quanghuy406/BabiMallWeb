@@ -1,0 +1,78 @@
+﻿@using BabiMall.Models
+@model IEnumerable<SUKIEN>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="title-tag">
+    <span>Sự kiện từ BabicuteMall</span>
+</div>
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner" style="display:flex;flex-wrap:wrap;padding:12px;margin:10px;">
+                        
+                        <div class="row same-height-wrap">
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-4 col-6">
+
+                                    <div class="card same-height-item" offset="787" style="height: 291.125px;">
+                                        <div class="card-img">
+                                            <div class="images images-block shop-img">
+                                                <a href="@Url.Action("Details","Sukien",new { id = item.MaSK })">
+                                                    <img class="img-fluid" src="~/Images/@item.Anhsukien" alt="RECHIC">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <hr class="card-division">
+                                        <div class="card-body text-center">
+                                            <h2 class="card-title same-height-item" offset="957" style="height: 26px;"><a href="@Url.Action("Details","Sukien",new { id = item.MaSK })" style="text-decoration:none;color:black;font-weight:bold;font-size:16px">@item.TenSK </a></h2>
+                                            <p class="card-meta">
+                                                <strong><i class="zmdi zmdi-pin"></i></strong>
+                                                <span>
+                                                    <img src="~/Images/location.png" width="20" height="20" />@item.Thongtinsukien
+                                                </span>
+                                            </p>
+                                            <p class="card-meta">
+                                                <strong>
+                                                    <i class="zmdi zmdi-label"></i>
+                                                    <img src="~/Images/time.png" width="20" height="20" />
+                                                    @item.Ngaybatdau
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <!--<div class="card-overlay card-overlay-light">
+                        <div class="card-overlay-content card-overlay-content-middle text-center">
+                            <a class="btn-outline-dark btn text-uppercase btn-xs-mini btn-hover" href="https://aeonmall-tanphuceladon.com.vn/cua-hang/rechic/">
+                                <span class="hover-span"></span><span class="font-weight-bold pr-2">Chi tiết</span><i class="zmdi zmdi-long-arrow-right font-weight-bold"></i>
+                            </a>
+                        </div>
+                    </div>-->
+                                    </div>
+
+                                </div>
+                            }
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

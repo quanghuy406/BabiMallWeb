@@ -1,0 +1,152 @@
+﻿@model BabiMall.Models.MATBANG
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner">
+
+                        <div class="container" style=" width: 440px; padding: 2.5rem; top: 30px; left: 50%; border: 1px solid #000; ">
+                            <img src="~/Images/logoMall.png" />
+                            <h2 class="AuthLayout_formTitle__2S9Up" style="font-size: 2.3rem; font-weight: 700; margin: 0.25rem 0;text-align:center">Thêm mặt bằng</h2>
+                            <div class="container" style=" width: 100%; margin: 1rem 0 0;">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            Thông tin mặt bằng
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Thongtinmatbang, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Thongtinmatbang, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Đơn vị tính (m^2)
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Donvitinh, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Donvitinh, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Đơn giá (??? / m^2)
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Dongia, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Dongia, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Mô tả
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Tên mặt bằng
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Tenmatbang, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Tenmatbang, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Vị trí
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Vitri, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Vitri, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Diện tích
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Dientich, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Dientich, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Điện thoại
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Dienthoai, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Dienthoai, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Liên hệ
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Lienhe, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Lienhe, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Hình minh họa
+                                            <div class="col-md-10">
+                                                <input type="file" name="Hinhminhhoa" />
+                                                @Html.ValidationMessageFor(model => model.Hinhminhhoa, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Mã Chủ đề
+                                            <div class="col-md-10">
+                                                @Html.DropDownList("MaCD", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.MaCD, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Ngày cập nhật (Ví dụ 10/30/2022 5:57:00 AM)
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Ngaycapnhat, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Số lượng bán
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Soluongban, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Soluongban, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Số lần xem
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.solanxem, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.solanxem, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Trạng thái mặt bằng
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Trangthaidonhang, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Trangthaidonhang, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Create" class="btn btn-danger" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div style="font-size:16px;">
+                                    @Html.ActionLink("Trở lại", "MatBang")
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

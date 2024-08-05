@@ -1,0 +1,44 @@
+﻿@using BabiMall.Models
+@model List<DONTHUEMATBANG>
+@{
+    ViewBag.Title = "DoanhThu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<h2 style="color:black;font-size:16px;text-align:center;font-weight:500;margin:15px">
+    <img src="~/Images/dolarr.png" width="20" height="20" />  Tổng Doanh Thu của BabicuteMall là :
+    <span>
+        <i style="color:red;font-size:20px;font-weight:600">
+            @string.Format("{0:0.000}", @ViewBag.TongDoanhThu) VNĐ
+        </i>
+    </span>
+</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã Đơn Thuê</th>
+            <th>Mã Khách hàng</th>
+            <th>Tên Khách Hàng</th>
+            <th>Ngày thuê</th>
+            <th>Hình thức thanh toán</th>
+            <th>Trị giá</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var donThue in ViewBag.DanhSachDonThue)
+        {
+            <tr>
+                <td>@donThue.Somatbang</td>
+                <td>@donThue.MaKH</td>
+                <td>@donThue.Tennguoithue</td>
+                <td>@donThue.Ngaythue</td>
+                <th>Chuyển khoản / Tiền mặt</th>
+                <th>@string.Format("{0:0.000}", @donThue.Trigia)</th>
+            </tr>
+        }
+    </tbody>
+</table>
+

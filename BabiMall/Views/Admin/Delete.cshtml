@@ -1,0 +1,83 @@
+﻿@model BabiMall.Models.MATBANG
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner">
+
+                        <div class="container" style=" width: 440px; padding: 2.5rem; top: 30px; left: 50%; border: 1px solid #000; ">
+                            <img src="~/Images/logoMall.png" />
+                            <h2 class="AuthLayout_formTitle__2S9Up" style="font-size: 2.3rem; font-weight: 700; margin: 0.25rem 0;text-align:center">Xóa mặt bằng</h2>
+                            <div class="container" style=" width: 100%; margin: 1rem 0 0;">
+                                <h3 style="color:#9f1a1a">Bạn có chắc là muốn xóa không ?</h3>
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        Thông tin mặt bằng
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Thongtinmatbang)
+                                    </dd>
+                                   
+
+                                    <dt>
+                                        Đơn giá
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Dongia)
+                                    </dd>
+
+                                    <dt>
+                                        Vị trí
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Vitri)
+                                    </dd>
+                                    <dt>
+                                        Diện tích
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Dientich)
+                                    </dd>
+
+                                    <dt>
+                                        Hình minh họa
+                                    </dt>
+
+                                    <dd>
+                                        
+                                        <img src="~/Images/@Model.Hinhminhhoa" width="250" height="120" style="display:flex;" />(Ảnh hiện tại)
+                                    </dd>
+
+                                </dl>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-actions no-color">
+                                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                        @Html.ActionLink("Trở lại", "Index")
+                                    </div>
+                                }
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

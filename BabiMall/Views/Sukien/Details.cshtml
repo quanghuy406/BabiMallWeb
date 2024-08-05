@@ -1,0 +1,42 @@
+﻿@using BabiMall.Models
+@model SUKIEN
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+}
+
+<div class="title-tag">
+    <span>Sự kiện từ BabicuteMall</span>
+</div>
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <h2 class="hoang-phuc-name-acc" style="font-weight: bold; font-size: 30px; margin: 20px; color: #19A7CE;">THÔNG TIN CHI TIẾT </h2>
+
+
+            <section class="product-details">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img style="width: 100%;" src="~/Images/@Model.Anhsukien" alt="">
+                            <h3 class="thongtinaccs-title" style=" text-align: center; font-weight: bold; font-size: 30px; margin: 10px;">
+                                @Model.TenSK
+                            </h3>
+                        </div>
+                        <div class="col-md-12">
+                            <a class="promotion-slide__title" href="">@Model.Thongtinsukien</a>
+                            <div class="promotion-slide__time"><img src="~/Images/time.png" width="20" height="20" />@Model.Ngaybatdau</div>
+
+
+                        </div>
+                    </div>
+                    <hr />
+                    <br />
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+

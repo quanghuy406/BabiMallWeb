@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MallBabiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHUDEMATBANG">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MATBANGs" Relationship="Self.FK_MATBANG_CHUDEMATBANG" FromRole="CHUDEMATBANG" ToRole="MATBANG" />
+  </EntityType>
+  <EntityType Name="CTDATMB">
+    <Key>
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="Mamatbang" Type="Int32" Nullable="false" />
+    <Property Name="Dongia" Type="Decimal" Precision="9" Scale="3" />
+    <Property Name="Thanhtien" Type="Decimal" Precision="9" Scale="3" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="MATBANG" Relationship="Self.FK_CTDATMB_MATBANG" FromRole="CTDATMB" ToRole="MATBANG" />
+    <NavigationProperty Name="DONTHUEMBs" Relationship="Self.FK_DONTHUEMB_CTDATMB" FromRole="CTDATMB" ToRole="DONTHUEMB" />
+  </EntityType>
+  <EntityType Name="DONTHUEMB">
+    <Key>
+      <PropertyRef Name="MaKH" />
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" />
+    <Property Name="Ngaythute" Type="DateTime" Precision="0" />
+    <Property Name="Trigia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tennguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HTThanhtoan" Type="Boolean" />
+    <Property Name="Mamatbang" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CTDATMB" Relationship="Self.FK_DONTHUEMB_CTDATMB" FromRole="DONTHUEMB" ToRole="CTDATMB" />
+    <NavigationProperty Name="KHACHHANGTHUONGMAI" Relationship="Self.FK_DONTHUEMB_KHACHHANGTHUONGMAI" FromRole="DONTHUEMB" ToRole="KHACHHANGTHUONGMAI" />
+  </EntityType>
+  <EntityType Name="KHACHHANGTHUONGMAI">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DienthoaiKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TenDN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Matkhau" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Daduyet" Type="Boolean" />
+    <Property Name="Diachi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DONTHUEMBs" Relationship="Self.FK_DONTHUEMB_KHACHHANGTHUONGMAI" FromRole="KHACHHANGTHUONGMAI" ToRole="DONTHUEMB" />
+  </EntityType>
+  <EntityType Name="MATBANG">
+    <Key>
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="Mamatbang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Thongtinmatbang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dongia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tenmatbang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Vitri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dientich" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dienthoai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lienhe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hinhminhhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaCD" Type="Int32" />
+    <Property Name="Ngaycapnhat" Type="DateTime" Precision="0" />
+    <Property Name="Soluongban" Type="Int32" />
+    <Property Name="solanxem" Type="Int32" />
+    <NavigationProperty Name="CHUDEMATBANG" Relationship="Self.FK_MATBANG_CHUDEMATBANG" FromRole="MATBANG" ToRole="CHUDEMATBANG" />
+    <NavigationProperty Name="CTDATMB" Relationship="Self.FK_CTDATMB_MATBANG" FromRole="MATBANG" ToRole="CTDATMB" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DienthoaiNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TenDN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Matkhau" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Daduyet" Type="Boolean" />
+    <NavigationProperty Name="Quanly" Relationship="Self.FK_NHANVIEN_Quanly" FromRole="NHANVIEN" ToRole="Quanly" />
+  </EntityType>
+  <EntityType Name="Quanly">
+    <Key>
+      <PropertyRef Name="Maquanly" />
+    </Key>
+    <Property Name="Maquanly" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Matkhau" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_NHANVIEN_Quanly" FromRole="Quanly" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="SUKIEN">
+    <Key>
+      <PropertyRef Name="MaSK" />
+    </Key>
+    <Property Name="MaSK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ngaybatdau" Type="DateTime" Precision="0" />
+    <Property Name="Thongtinsukien" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Anhsukien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_MATBANG_CHUDEMATBANG">
+    <End Role="CHUDEMATBANG" Type="Self.CHUDEMATBANG" Multiplicity="0..1" />
+    <End Role="MATBANG" Type="Self.MATBANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDEMATBANG">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="MATBANG">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDATMB_MATBANG">
+    <End Role="MATBANG" Type="Self.MATBANG" Multiplicity="1" />
+    <End Role="CTDATMB" Type="Self.CTDATMB" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MATBANG">
+        <PropertyRef Name="Mamatbang" />
+      </Principal>
+      <Dependent Role="CTDATMB">
+        <PropertyRef Name="Mamatbang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONTHUEMB_CTDATMB">
+    <End Role="CTDATMB" Type="Self.CTDATMB" Multiplicity="1" />
+    <End Role="DONTHUEMB" Type="Self.DONTHUEMB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTDATMB">
+        <PropertyRef Name="Mamatbang" />
+      </Principal>
+      <Dependent Role="DONTHUEMB">
+        <PropertyRef Name="Mamatbang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONTHUEMB_KHACHHANGTHUONGMAI">
+    <End Role="KHACHHANGTHUONGMAI" Type="Self.KHACHHANGTHUONGMAI" Multiplicity="1" />
+    <End Role="DONTHUEMB" Type="Self.DONTHUEMB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANGTHUONGMAI">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DONTHUEMB">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_Quanly">
+    <End Role="Quanly" Type="Self.Quanly" Multiplicity="1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Quanly">
+        <PropertyRef Name="Maquanly" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MallBabiEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHUDEMATBANGs" EntityType="Self.CHUDEMATBANG" />
+    <EntitySet Name="CTDATMBs" EntityType="Self.CTDATMB" />
+    <EntitySet Name="DONTHUEMBs" EntityType="Self.DONTHUEMB" />
+    <EntitySet Name="KHACHHANGTHUONGMAIs" EntityType="Self.KHACHHANGTHUONGMAI" />
+    <EntitySet Name="MATBANGs" EntityType="Self.MATBANG" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="Quanlies" EntityType="Self.Quanly" />
+    <EntitySet Name="SUKIENs" EntityType="Self.SUKIEN" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_MATBANG_CHUDEMATBANG" Association="Self.FK_MATBANG_CHUDEMATBANG">
+      <End Role="CHUDEMATBANG" EntitySet="CHUDEMATBANGs" />
+      <End Role="MATBANG" EntitySet="MATBANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDATMB_MATBANG" Association="Self.FK_CTDATMB_MATBANG">
+      <End Role="MATBANG" EntitySet="MATBANGs" />
+      <End Role="CTDATMB" EntitySet="CTDATMBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONTHUEMB_CTDATMB" Association="Self.FK_DONTHUEMB_CTDATMB">
+      <End Role="CTDATMB" EntitySet="CTDATMBs" />
+      <End Role="DONTHUEMB" EntitySet="DONTHUEMBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONTHUEMB_KHACHHANGTHUONGMAI" Association="Self.FK_DONTHUEMB_KHACHHANGTHUONGMAI">
+      <End Role="KHACHHANGTHUONGMAI" EntitySet="KHACHHANGTHUONGMAIs" />
+      <End Role="DONTHUEMB" EntitySet="DONTHUEMBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_Quanly" Association="Self.FK_NHANVIEN_Quanly">
+      <End Role="Quanly" EntitySet="Quanlies" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

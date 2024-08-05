@@ -1,0 +1,50 @@
+﻿@using BabiMall.Models;
+@model IEnumerable<KHACHHANG>
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Địa chỉ</th>
+        <th>Số điện thoại</th>
+        <th>Tên đăng nhập</th>
+        <th>Mật khẩu</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.MaKH</td>
+            <td>@customer.HoTenKH</td>
+            <td>@customer.Email</td>
+            <td>@customer.Diachi</td>
+            <td>@customer.DienthoaiKH</td>
+            <td>@customer.TenDN</td>
+            <td>@customer.Matkhau</td>
+
+        </tr>
+    }
+</table>
+
+

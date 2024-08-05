@@ -1,0 +1,90 @@
+﻿@model BabiMall.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+    
+}
+
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner">
+
+                        <div class="container" style=" width: 440px; padding: 2.5rem; top: 30px; left: 50%; border: 1px solid #000; ">
+                            <img src="~/Images/logoMall.png" />
+                            <h2 class="AuthLayout_formTitle__2S9Up" style="font-size: 2.3rem; font-weight: 700; margin: 0.25rem 0;text-align:center">Sửa thông tin khách hàng</h2>
+                            <div class="container" style=" width: 100%; margin: 1rem 0 0;">
+                                @using (Html.BeginForm("Edit", "GioHang", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            Mã khách hàng
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            Họ tên khách hàng
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.HoTenKH, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.HoTenKH, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Số điện thoại
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.DienthoaiKH, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.DienthoaiKH, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Email
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            Địa chỉ
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Diachi, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Diachi, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Save" class="btn btn-danger" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div>
+                                    @Html.ActionLink("Trở lại", "DatHang")
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

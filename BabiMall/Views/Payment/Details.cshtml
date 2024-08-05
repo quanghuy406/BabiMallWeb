@@ -1,0 +1,83 @@
+﻿@model BabiMall.Models.DONTHUEMATBANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DONTHUEMATBANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaythue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaythue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trigia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trigia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tennguoithue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tennguoithue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTThanhtoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTThanhtoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dientichthue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dientichthue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dienthoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dienthoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thoihanthue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thoihanthue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANG.HoTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.HoTenKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Somatbang }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

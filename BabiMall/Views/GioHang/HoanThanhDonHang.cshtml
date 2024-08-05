@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "HoanThanhDonHang";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    p {
+        color: #666;
+    }
+
+    .button1 {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #D82D8B;
+        color: white;
+        border: 1px solid black;
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 8px;
+    }
+
+        .button1:hover {
+            background-color: #d64d96;
+        }
+
+    .button2 {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid black;
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 8px;
+    }
+
+        .button2:hover {
+            background-color: #45a049;
+        }
+    img {
+        max-width: 200px;
+        
+    }
+    .custom-link {
+        font-size: 18px;
+        color: black;
+        border: 2px solid black;
+        border-radius: 4px;
+        padding: 10px 20px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+        .custom-link:hover {
+            background-color: gray;
+        }
+</style>
+<div class="promotion-block__inner">
+    <div class="container">
+        <div class="promotion-inner">
+            <div class="promotion-slide">
+                <div class="container">
+                    <div class="promotion-slide__inner">
+
+                        <div class="container" style=" width: 800px; padding: 2.5rem;  top: 30px; left: 50%;border:1px solid #000;">
+                            <img src="~/Images/logoMall.png" />
+                            
+                            <div class="container" style=" width: 100%; margin: 1rem 0 0;">
+                                <div style="text-align:center ;color:black;font-size:18px">
+
+                                    <p style="font-size:20px ; text-decoration:none;color:black;">✅ HOÀN THÀNH ĐƠN THUÊ</p>
+                                    <hr />
+                                    <p style="color:black;">
+                                        Cảm ơn quý khách đã thuê mặt bằng của trung tâm chúng tôi ! Chúng tôi sẽ giữ mặt bằng trong thời gian 3 ngày !
+                                        Quý khách vui lòng đến trung tâm thương mại gần nhất để hoàn tất hợp đồng thuê mặt bằng và thanh toán !
+                                    </p>
+                                    <hr />
+                                    <i style="color:black">
+                                        Chúng tôi có dịch vụ thanh toán trước qua Atm Banking và Momo<i class="fa fa-dollar" style="font-size:18px;color:green"></i><i class="fa fa-dollar" style="font-size:18px;color:green"></i><i class="fa fa-dollar" style="font-size:18px;color:green"></i>
+                                    </i>
+                                    <div class="row">
+                                        <div class="col-6" style="border-right: 1px solid black;">
+                                            <button class="button1" onclick="payWithMomo()"><img src="~/Images/momo.png" height="35" width="35" /> Thanh toán qua Momo</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="button2" onclick="payWithATM()"><img src="~/Images/Icon-Vietcombank.png" height="35" width="35" /> Thanh toán qua thẻ VCB</button>
+                                        </div>
+
+
+                                    </div>
+                                    <hr />
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-6" style="border-right: 1px solid black;">
+                                            <img src="~/Images/qrcode-default.png" alt="Mã QR">
+                                        </div>
+                                        <div class="col-6" >
+                                            <img src="~/Images/qrcode-default.png" alt="Mã QR">
+                                        </div>
+
+
+                                    </div>
+                                    <br />
+                                    <hr style="color:black" />
+
+                                    <script>
+                                        function payWithMomo() {
+                                            // Xử lý thanh toán qua Momo
+                                        }
+
+                                        function payWithATM() {
+                                            // Xử lý thanh toán qua thẻ ATM
+                                        }
+                                    </script>
+                                    <div class="row">
+                                        <div class="col-6" style="border-right: 1px solid black;">
+
+                                               @Html.ActionLink("Về trang chủ", "Index", "SuKien", null, new { @class = "custom-link" })
+
+                                        </div>
+                                        <div class="col-6">
+                                            @Html.ActionLink("Xem lại đơn thuê", "XemDonHang", "GioHang", null, new { @class = "custom-link" })
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

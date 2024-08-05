@@ -1,0 +1,157 @@
+﻿@using BabiMall.Models
+@model MATBANG
+@{
+    ViewBag.Title = "DetailsMatBang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="hoang-phuc-name-acc">THÔNG TIN CHI TIẾT</h2>
+
+
+<section class="product-details">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6">
+                <img style="width: 100%;" src="~/Images/@Model.Hinhminhhoa" alt="">
+                <h3 class="thongtinaccs-title">
+                    @Model.Tenmatbang
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h2 style="font-size:18px;font-weight:600;color:#c71b1b;text-align:center">@Model.Thongtinmatbang</h2>
+                <p style="text-align: center; font-size: 17px; font-weight: 500;">
+                    <span style="font-weight: bold;font-size:18px">Thông tin mặt bằng : </span> @Model.Mota
+                </p>
+                <div class="gicungdcs">
+                    <hr />
+                    <div class="thongtinaccs-meta-home">
+                        <span class="thongtinacc-rank-home">
+                            <label>Vị trí : </label>
+                            @Model.Vitri
+                        </span>
+                        <span class="thongtinacc-tuong-home">
+                            <label>Điện thoại :</label>
+                            @Model.Dienthoai
+                        </span>
+                        <br>
+                        <span class="thongtinacc-trang_phuc-home">
+                            <label>Diện tích :</label>
+                            @Model.Dientich @Model.Donvitinh
+                        </span>
+                        <span class="thongtinacc-ngoc-home">
+                            <label>Liên hệ : </label>
+                            @Model.Lienhe
+                        </span>
+                    </div>
+                    <hr />
+                </div>
+                <p class="thongtinacc-price">
+                    <span style="color:#000;font-weight:600;">Giá thuê: </span><span style="color:#c71b1b; font-size:24px;font-weight:600">@string.Format("{0:0.000}", @Model.Dongia) VNĐ /m^2</span>
+                </p>
+            </div>
+        </div>
+        <hr />
+        <br />
+        <img style="width: 100%;" src="~/Images/@Model.Hinhminhhoa" alt="">
+        <!--<div class="thanhtoan">
+            <a class="btn bg-vip" href="@Url.Action("ThemSanPhamVaoGio", "GioHang", new{ MaMB = Model.Mamatbang })">
+                Thêm vào giỏ hàng
+            </a>
+
+            <button type="button" class="btn bg-pink" data-toggle="modal" data-target="#myModal">
+                Mua ngay
+            </button>
+
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 style="text-align:center;font-weight:600;color:red;">Thông tin chi tiết ACC</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img style="width: 100%;" src="~/Images/@Model.Hinhminhhoa" alt="">
+                                    <h3 class="thongtinaccs-title">
+                                        @Model.Thongtinmatbang
+                                    </h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <h2 style="font-size:18px;font-weight:600;color:#c71b1b;text-align:center">@Model.Tenmatbang</h2>
+                                    <p style="text-align: center; font-size: 17px; font-weight: 500;background: repeating-linear-gradient(45deg, #00CFC5, transparent 800px);">
+                                        <span style="font-weight: bold;font-size:18px">ID: </span> @Model.Dongia
+                                    </p>
+                                    <div class="gicungdcs">
+                                        <hr />
+                                        <div class="thongtinaccs-meta-home">
+                                            <span class="thongtinacc-rank-home">
+                                                <label>Rank:</label>
+                                                @Model.Vitri
+                                            </span>
+                                            <span class="thongtinacc-tuong-home">
+                                                <label>Tướng:</label>
+                                                @Model.Dienthoai
+                                            </span>
+                                            <br>
+                                            <span class="thongtinacc-trang_phuc-home">
+                                                <label>Trang phục:</label>
+                                                @Model.Dientich
+                                            </span>
+                                            <span class="thongtinacc-ngoc-home">
+                                                <label>Ngọc:</label>
+                                                @Model.Lienhe
+                                            </span>
+                                        </div>
+                                        <hr />
+                                    </div>
+                                    <p class="thongtinacc-price">
+                                        <span style="color:#000;">Giá bán: </span><span style="color:#c71b1b; font-size:24px;">@string.Format("{0:0.000}", @Model.Dongia) VNĐ</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr />
+                            <h5 style="color:red;font-size:16px;font-weight:600;border-bottom:1px solid red;">Tình trạng liên kết:</h5>
+                            <p style="font-size:15px;font-weight:600;">Liên kết số điện thoại :<i style="color:red;"> Có thể thay đổi*</i></p>
+                            <p style="font-size:15px;font-weight:600;">Liên kết facebook :<i>Có</i></p>
+                            <p style="font-size:15px;font-weight:600;">Liên kết CMND :<i>Không</i></p>
+                            <hr />
+                            <div>
+                                <ul style="list-style:none;">
+                                    <li style="" color:red;font-size:18px;font-weight:600">
+                                        Vui lòng chuyển khoản vào :
+                                    </li>
+                                    <li>
+                                        <p>⇝ Momo: <b id="text-tk">093.414.9502</b> <button style="line-height:1;font-size:11px;background-color: #00CFC5; padding:3px;" class="btn button" onclick="copyToClipboard('#text-tk')">Copy</button></p>
+                                    </li>
+                                    <li>
+                                        <p>⇝ Vietcombank: <b id="text-tk">1018030003</b> <button style="line-height:1;font-size:11px;background-color: #00CFC5; padding:3px;" class="btn button" onclick="copyToClipboard('#text-tk')">Copy</button></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-vip">
+                                <a class="btn bg-vip" href="@Url.Action("ThemSanPhamVaoGio", "GioHang", new{ MaACC = Model.Mamatbang })">
+                                    Thêm vào giỏ hàng
+                                </a>
+                            </button>
+                            <button type="button" class="btn bg-pink">
+                                <a class="btn bg-pink" href="#">
+                                    Mua ngay
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <hr />
+
+    </div>
+</section>
+

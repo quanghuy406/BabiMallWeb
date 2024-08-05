@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BabiMallModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHUDEMATBANG">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenChuDe" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTTHAMDO">
+    <Key>
+      <PropertyRef Name="MaCH" />
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="MaCH" Type="int" Nullable="false" />
+    <Property Name="STT" Type="int" Nullable="false" />
+    <Property Name="Noidungtraloi" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Solanbinhchon" Type="int" />
+  </EntityType>
+  <EntityType Name="CTTHUEMATBANG">
+    <Key>
+      <PropertyRef Name="Somatbang" />
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="Somatbang" Type="int" Nullable="false" />
+    <Property Name="Mamatbang" Type="int" Nullable="false" />
+    <Property Name="Sodientichthue" Type="int" />
+    <Property Name="Dongia" Type="decimal" Precision="9" Scale="3" />
+    <Property Name="Thanhtien" Type="decimal" Precision="20" Scale="3" StoreGeneratedPattern="Computed" />
+    <Property Name="Hinhminhhoa" Type="varchar" MaxLength="50" />
+    <Property Name="Tongdoanhthu" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="DANHMUC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tendanhmuc" Type="nvarchar" MaxLength="100" />
+    <Property Name="Mota" Type="ntext" />
+    <Property Name="Hinhminhhoa" Type="varchar" MaxLength="50" />
+    <Property Name="Loaidoanhmuc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DONTHUEMATBANG">
+    <Key>
+      <PropertyRef Name="Somatbang" />
+    </Key>
+    <Property Name="Somatbang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaKH" Type="int" />
+    <Property Name="Ngaythue" Type="date" />
+    <Property Name="Trigia" Type="money" />
+    <Property Name="Tennguoithue" Type="nvarchar" MaxLength="50" />
+    <Property Name="HTThanhtoan" Type="bit" />
+    <Property Name="Dientichthue" Type="ntext" />
+    <Property Name="Dienthoai" Type="varchar" MaxLength="10" />
+    <Property Name="Thoihanthue" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DienthoaiKH" Type="varchar" MaxLength="10" />
+    <Property Name="TenDN" Type="varchar" MaxLength="15" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Daduyet" Type="bit" />
+  </EntityType>
+  <EntityType Name="MATBANG">
+    <Key>
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="Mamatbang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Thongtinmatbang" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Donvitinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dongia" Type="money" />
+    <Property Name="Mota" Type="ntext" />
+    <Property Name="Tenmatbang" Type="ntext" />
+    <Property Name="Vitri" Type="ntext" />
+    <Property Name="Dientich" Type="ntext" />
+    <Property Name="Dienthoai" Type="ntext" />
+    <Property Name="Lienhe" Type="ntext" />
+    <Property Name="Hinhminhhoa" Type="varchar" MaxLength="50" />
+    <Property Name="MaCD" Type="int" />
+    <Property Name="Ngaycapnhat" Type="smalldatetime" />
+    <Property Name="Soluongban" Type="int" />
+    <Property Name="solanxem" Type="int" />
+    <Property Name="Trangthaidonhang" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DienthoaiNV" Type="varchar" MaxLength="10" />
+    <Property Name="TenDN" Type="varchar" MaxLength="15" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Daduyet" Type="bit" />
+  </EntityType>
+  <EntityType Name="QUANLY">
+    <Key>
+      <PropertyRef Name="Maquanly" />
+    </Key>
+    <Property Name="Maquanly" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tendangnhap" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Tenquanli" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUKIEN">
+    <Key>
+      <PropertyRef Name="MaSK" />
+    </Key>
+    <Property Name="MaSK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSK" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Ngaybatdau" Type="date" />
+    <Property Name="Thongtinsukien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Motasukien" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Anhsukien" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_CTTHUEMATBANG_Donthuematbang">
+    <End Role="DONTHUEMATBANG" Type="Self.DONTHUEMATBANG" Multiplicity="1" />
+    <End Role="CTTHUEMATBANG" Type="Self.CTTHUEMATBANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONTHUEMATBANG">
+        <PropertyRef Name="Somatbang" />
+      </Principal>
+      <Dependent Role="CTTHUEMATBANG">
+        <PropertyRef Name="Somatbang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTTHUEMATBANG_MATBANG">
+    <End Role="MATBANG" Type="Self.MATBANG" Multiplicity="1" />
+    <End Role="CTTHUEMATBANG" Type="Self.CTTHUEMATBANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATBANG">
+        <PropertyRef Name="Mamatbang" />
+      </Principal>
+      <Dependent Role="CTTHUEMATBANG">
+        <PropertyRef Name="Mamatbang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donthuematbang_KhachHang">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONTHUEMATBANG" Type="Self.DONTHUEMATBANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DONTHUEMATBANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MATBANG_ChuDeMatBang">
+    <End Role="CHUDEMATBANG" Type="Self.CHUDEMATBANG" Multiplicity="0..1" />
+    <End Role="MATBANG" Type="Self.MATBANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDEMATBANG">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="MATBANG">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BabiMallModelStoreContainer">
+    <EntitySet Name="CHUDEMATBANG" EntityType="Self.CHUDEMATBANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTTHAMDO" EntityType="Self.CTTHAMDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTTHUEMATBANG" EntityType="Self.CTTHUEMATBANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHMUC" EntityType="Self.DANHMUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONTHUEMATBANG" EntityType="Self.DONTHUEMATBANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MATBANG" EntityType="Self.MATBANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUANLY" EntityType="Self.QUANLY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUKIEN" EntityType="Self.SUKIEN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CTTHUEMATBANG_Donthuematbang" Association="Self.FK_CTTHUEMATBANG_Donthuematbang">
+      <End Role="DONTHUEMATBANG" EntitySet="DONTHUEMATBANG" />
+      <End Role="CTTHUEMATBANG" EntitySet="CTTHUEMATBANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTTHUEMATBANG_MATBANG" Association="Self.FK_CTTHUEMATBANG_MATBANG">
+      <End Role="MATBANG" EntitySet="MATBANG" />
+      <End Role="CTTHUEMATBANG" EntitySet="CTTHUEMATBANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donthuematbang_KhachHang" Association="Self.FK_Donthuematbang_KhachHang">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONTHUEMATBANG" EntitySet="DONTHUEMATBANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MATBANG_ChuDeMatBang" Association="Self.FK_MATBANG_ChuDeMatBang">
+      <End Role="CHUDEMATBANG" EntitySet="CHUDEMATBANG" />
+      <End Role="MATBANG" EntitySet="MATBANG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

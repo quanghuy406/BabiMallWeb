@@ -1,0 +1,262 @@
+﻿@using BabiMall.Models
+@model List<DANHMUC>
+
+@{
+    ViewBag.Title = "FilterResults";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+}
+
+<style>
+    .nav-form .menu-item-has-children {
+        font-size: 14px;
+    }
+
+        .nav-form .menu-item-has-children .sub-menu {
+            padding-left: 1.4rem;
+        }
+
+        .nav-form .menu-item-has-children ul {
+            margin-top: 12px;
+        }
+
+    .nav-form > .menu-item-has-children {
+        margin: 0.5rem 0;
+    }
+
+        .nav-form > .menu-item-has-children > a {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .nav-form > .menu-item-has-children a {
+            width: 100%;
+            display: block;
+            text-decoration: none;
+            position: relative;
+            color: #333333;
+            padding-right: 1.3rem;
+        }
+
+            .nav-form > .menu-item-has-children a i {
+                text-align: right;
+                position: absolute;
+                right: 0;
+                top: 3px;
+                font-weight: inherit;
+                width: 100%;
+                height: 100%;
+                font-size: 20px;
+                font-weight: normal;
+            }
+
+            .nav-form > .menu-item-has-children a[aria-expanded='false'] .icon-plus::before {
+                content: "\f275";
+            }
+
+            .nav-form > .menu-item-has-children a[aria-expanded='true'] .icon-plus::before {
+                content: "\f270";
+            }
+
+        .nav-form > .menu-item-has-children > ul {
+            padding-left: 1.4rem;
+        }
+
+            .nav-form > .menu-item-has-children > ul > li > a {
+                font-weight: 600;
+            }
+
+            .nav-form > .menu-item-has-children > ul ul {
+                padding-left: 10px;
+                padding-top: 4px;
+            }
+
+                .nav-form > .menu-item-has-children > ul ul li.menu-item-has-children a {
+                    color: rgba(0, 0, 0, 0.6);
+                }
+</style>
+<div class="main-content">
+    <div class="container">
+        <div class="row" style="margin-top:10px">
+            <div class="col-lg-3 col-md-4">
+
+                
+
+                <!-- Filter sidebar -->
+                <div class="sidebar-control sidebar-left has-border sidebar-nav" id="filter-nav">
+                    <form action="@Url.Action("FilterResults", "Danhmuc")" method="get">
+                        <!-- Filter group -->
+
+                        <div class="widget">
+                            <h4 class="widget-title text-uppercase font-weight-bold">Phân loại cửa hàng</h4>
+                            <ul class="list-unstyled nav-form">
+                                <li class="menu-item-has-children">
+                                    <input type="checkbox" name="thoitrang" value="true" id="thoitrangCheckbox" />
+                                    <label for="thoitrangCheckbox">Thời trang</label>
+                                </li>
+
+                                <li class="menu-item-has-children">
+                                    <input type="checkbox" name="Coffee" value="true" id="doUongCheckbox" />
+                                    <label for="doUongCheckbox">Coffee & Tea</label>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <input type="checkbox" name="nhahang" value="true" id="doAnCheckbox" />
+                                    <label for="doAnCheckbox">Nhà hàng</label>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <input type="checkbox" name="dichvu" value="true" id="dichvuCheckbox" />
+                                    <label for="dichvuCheckbox">Giải trí - Dịch vụ</label>
+                                </li>
+                                
+                            </ul>
+                        </div>
+
+                        
+                        <input type="hidden" name="paged" value="1">
+                        <button class="btn text-uppercase btn-xs-mini btn-hover btn-outline-dark btn-block">
+                            <span class="hover-span" style="top: 107.938px; left: 64.5px;"></span><span class="font-weight-bold pr-2">Tìm kiếm</span>
+                            <i class="zmdi zmdi-long-arrow-right font-weight-bold"></i>
+                        </button>
+                    </form>
+                </div>
+                <a class="backdrop-sidebar" href="#filter-nav"></a>
+            </div>
+
+            <div class="col-lg-9 col-md-8">
+
+                <!-- Top infomation -->
+                <div class="top-page">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="text-grey">:))</h3>
+                        </div>
+                        <div class="col-sm-6 text-right d-none d-md-block">
+                            <a class="btn-outline-dark btn text-uppercase btn-xs-mini btn-hover" href="#">
+                                <span class="hover-span"></span><span class="font-weight-bold pr-2">
+                                    Bản đồ sàn
+                                </span><i class="zmdi zmdi-map fs-18"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shop list -->
+                <div class="row same-height-wrap">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-6">
+
+                            <div class="card same-height-item" offset="787" style="height: 291.125px;">
+                                <div class="card-img">
+                                    <div class="images images-block shop-img">
+                                        <a href="#">
+                                            <img class="img-fluid" src="~/Images/Doanhnghiep/@item.Hinhminhhoa" alt="Ảnh">
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr class="card-division">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title same-height-item" offset="957" style="height: 26px;"><a href="#" style="text-decoration:none;color:black;font-weight:bold;font-size:16px">@item.Tendanhmuc </a></h2>
+                                    <p class="card-meta">
+                                        <strong><i class="zmdi zmdi-pin"></i></strong>
+                                        <span>
+                                            <img src="~/Images/location.png" width="20" height="20" />@item.Mota
+                                        </span>
+                                    </p>
+                                    <p class="card-meta">
+                                        <strong>
+                                            <i class="zmdi zmdi-label"></i>
+                                            <img src="~/Images/mark.png" width="20" height="20" />@item.Loaidoanhmuc
+                                        </strong>
+                                    </p>
+                                </div>
+                                <!--<div class="card-overlay card-overlay-light">
+                        <div class="card-overlay-content card-overlay-content-middle text-center">
+                            <a class="btn-outline-dark btn text-uppercase btn-xs-mini btn-hover" href="https://aeonmall-tanphuceladon.com.vn/cua-hang/rechic/">
+                                <span class="hover-span"></span><span class="font-weight-bold pr-2">Chi tiết</span><i class="zmdi zmdi-long-arrow-right font-weight-bold"></i>
+                            </a>
+                        </div>
+                    </div>-->
+                            </div>
+
+                        </div>
+                    }
+
+
+                </div>
+                <!-- Hiển thị điều hướng trang -->
+                
+                <nav class="paging-nav text-center">
+                    <ul class="pagination justify-content-center pagination-light">
+
+                        @if (ViewBag.CurrentPage == 1)
+                        {
+                            <li class="page-item active">
+                                <span aria-current="page" class="page-link current">1</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("FilterResults", new { page = 1 })">1</a>
+                            </li>
+                        }
+
+                        @if (ViewBag.CurrentPage > 4)
+                        {
+                            <li class="page-item">
+                                <span class="page-link dots">…</span>
+                            </li>
+                        }
+
+                        @for (int i = ViewBag.CurrentPage - 2; i <= ViewBag.CurrentPage + 2; i++)
+                        {
+                            if (i >= 2 && i <= ViewBag.TotalPages - 1)
+                            {
+                                if (i == ViewBag.CurrentPage)
+                                {
+                                    <li class="page-item active">
+                                        <span aria-current="page" class="page-link current">@i</span>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("FilterResults", new { page = i })">@i</a>
+                                    </li>
+                                }
+                            }
+                        }
+
+                        @if (ViewBag.CurrentPage < ViewBag.TotalPages - 3)
+                        {
+                            <li class="page-item">
+                                <span class="page-link dots">…</span>
+                            </li>
+                        }
+
+                        @if (ViewBag.CurrentPage == ViewBag.TotalPages)
+                        {
+                            <li class="page-item active">
+                                <span aria-current="page" class="page-link current">@ViewBag.TotalPages</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("FilterResults", new { page = ViewBag.TotalPages })">@ViewBag.TotalPages</a>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

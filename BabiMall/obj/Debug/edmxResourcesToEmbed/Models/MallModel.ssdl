@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MallBabiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHUDEMATBANG">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenChuDe" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTDATMB">
+    <Key>
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="Mamatbang" Type="int" Nullable="false" />
+    <Property Name="Dongia" Type="decimal" Precision="9" Scale="3" />
+    <Property Name="Thanhtien" Type="decimal" Precision="9" Scale="3" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DONTHUEMB">
+    <Key>
+      <PropertyRef Name="MaKH" />
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="MaKH" Type="int" Nullable="false" />
+    <Property Name="Ngaythute" Type="smalldatetime" />
+    <Property Name="Trigia" Type="money" />
+    <Property Name="Tennguoinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="HTThanhtoan" Type="bit" />
+    <Property Name="Mamatbang" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KHACHHANGTHUONGMAI">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DienthoaiKH" Type="varchar" MaxLength="10" />
+    <Property Name="TenDN" Type="varchar" MaxLength="15" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Daduyet" Type="bit" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="MATBANG">
+    <Key>
+      <PropertyRef Name="Mamatbang" />
+    </Key>
+    <Property Name="Mamatbang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Thongtinmatbang" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Dongia" Type="money" />
+    <Property Name="Mota" Type="ntext" />
+    <Property Name="Tenmatbang" Type="ntext" />
+    <Property Name="Vitri" Type="ntext" />
+    <Property Name="Dientich" Type="ntext" />
+    <Property Name="Dienthoai" Type="ntext" />
+    <Property Name="Lienhe" Type="ntext" />
+    <Property Name="Hinhminhhoa" Type="varchar" MaxLength="50" />
+    <Property Name="MaCD" Type="int" />
+    <Property Name="Ngaycapnhat" Type="smalldatetime" />
+    <Property Name="Soluongban" Type="int" />
+    <Property Name="solanxem" Type="int" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DienthoaiNV" Type="varchar" MaxLength="10" />
+    <Property Name="TenDN" Type="varchar" MaxLength="15" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Daduyet" Type="bit" />
+  </EntityType>
+  <EntityType Name="Quanly">
+    <Key>
+      <PropertyRef Name="Maquanly" />
+    </Key>
+    <Property Name="Maquanly" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tendangnhap" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUKIEN">
+    <Key>
+      <PropertyRef Name="MaSK" />
+    </Key>
+    <Property Name="MaSK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSK" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Ngaybatdau" Type="date" />
+    <Property Name="Thongtinsukien" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Anhsukien" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_CTDATMB_MATBANG">
+    <End Role="MATBANG" Type="Self.MATBANG" Multiplicity="1" />
+    <End Role="CTDATMB" Type="Self.CTDATMB" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MATBANG">
+        <PropertyRef Name="Mamatbang" />
+      </Principal>
+      <Dependent Role="CTDATMB">
+        <PropertyRef Name="Mamatbang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONTHUEMB_CTDATMB">
+    <End Role="CTDATMB" Type="Self.CTDATMB" Multiplicity="1" />
+    <End Role="DONTHUEMB" Type="Self.DONTHUEMB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTDATMB">
+        <PropertyRef Name="Mamatbang" />
+      </Principal>
+      <Dependent Role="DONTHUEMB">
+        <PropertyRef Name="Mamatbang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONTHUEMB_KHACHHANGTHUONGMAI">
+    <End Role="KHACHHANGTHUONGMAI" Type="Self.KHACHHANGTHUONGMAI" Multiplicity="1" />
+    <End Role="DONTHUEMB" Type="Self.DONTHUEMB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANGTHUONGMAI">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DONTHUEMB">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MATBANG_CHUDEMATBANG">
+    <End Role="CHUDEMATBANG" Type="Self.CHUDEMATBANG" Multiplicity="0..1" />
+    <End Role="MATBANG" Type="Self.MATBANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDEMATBANG">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="MATBANG">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_Quanly">
+    <End Role="Quanly" Type="Self.Quanly" Multiplicity="1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Quanly">
+        <PropertyRef Name="Maquanly" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MallBabiModelStoreContainer">
+    <EntitySet Name="CHUDEMATBANG" EntityType="Self.CHUDEMATBANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTDATMB" EntityType="Self.CTDATMB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONTHUEMB" EntityType="Self.DONTHUEMB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANGTHUONGMAI" EntityType="Self.KHACHHANGTHUONGMAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MATBANG" EntityType="Self.MATBANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quanly" EntityType="Self.Quanly" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUKIEN" EntityType="Self.SUKIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CTDATMB_MATBANG" Association="Self.FK_CTDATMB_MATBANG">
+      <End Role="MATBANG" EntitySet="MATBANG" />
+      <End Role="CTDATMB" EntitySet="CTDATMB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONTHUEMB_CTDATMB" Association="Self.FK_DONTHUEMB_CTDATMB">
+      <End Role="CTDATMB" EntitySet="CTDATMB" />
+      <End Role="DONTHUEMB" EntitySet="DONTHUEMB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONTHUEMB_KHACHHANGTHUONGMAI" Association="Self.FK_DONTHUEMB_KHACHHANGTHUONGMAI">
+      <End Role="KHACHHANGTHUONGMAI" EntitySet="KHACHHANGTHUONGMAI" />
+      <End Role="DONTHUEMB" EntitySet="DONTHUEMB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MATBANG_CHUDEMATBANG" Association="Self.FK_MATBANG_CHUDEMATBANG">
+      <End Role="CHUDEMATBANG" EntitySet="CHUDEMATBANG" />
+      <End Role="MATBANG" EntitySet="MATBANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_Quanly" Association="Self.FK_NHANVIEN_Quanly">
+      <End Role="Quanly" EntitySet="Quanly" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,72 @@
+﻿@using BabiMall.Models
+@model List<MatBangThue>
+@{
+    ViewBag.Title = "HienThiGioHang";
+    Layout = "~/Views/Shared/_LayoutChitiet.cshtml";
+}
+
+<h2 class="hoang-phuc-name-acc">THÔNG TIN MẶT BẰNG</h2>
+<div class="hienthigiohang">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Mã mặt bằng</th>
+                            <th>Thông tin mặt bằng</th>
+                            <th>Ảnh minh họa</th>
+                            <th>Diện tích</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                            <th>Chi tiết</th>
+                            
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var matbang in Model)
+                        {
+                            <tr>
+                                <td>@matbang.MaMatBang</td>
+                                <td>@matbang.TenMatBang</td>
+                                <td><img src="~/Images/@matbang.Hinhminhhoa" width="250" height="152" /></td>
+                                @using (Html.BeginForm("CapNhatMatHang", "GioHang", new { Mamatbang =matbang.MaMatBang }))
+                                {
+                                    <td>
+                                        @matbang.DienTich m^2
+                                    </td>
+                                    <td>@string.Format("{0:0.000}", matbang.DonGia)</td>
+                                    <td>@string.Format("{0:0,000.000}", matbang.ThanhTien())</td>
+                                    <td>@Html.ActionLink("Chi tiết", "Details", "MatBang", new { id = matbang.MaMatBang }, new { @class = "btn btn-success" })</td>
+                                    
+
+                                }
+
+                                <td>@Html.ActionLink("Xóa hàng", "XoaMatHang", "GioHang", new { Mamatbang = matbang.MaMatBang }, new { @class = "btn btn-danger" })</td>
+
+                            </tr>
+                        }
+                        <tr style="font-weight:bold; text-align:right; color:red;">
+                            <td colspan="4">Tổng diện tích: @ViewBag.TongSL m^2</td>
+                            <td colspan="2">Tổng tiền: @string.Format("{0:0,000.000}", @ViewBag.TongTien)</td>
+                        </tr>
+                        <tr style="font-weight:bold; text-align:center;">
+                            <td colspan="9">
+                                @Html.ActionLink("ĐẶT HÀNG", "DatHang", null, new { @class = "btn btn-primary" })
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
